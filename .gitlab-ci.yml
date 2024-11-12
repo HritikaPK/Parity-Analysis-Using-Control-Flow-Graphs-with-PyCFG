@@ -20,6 +20,9 @@ Run_Sample_1_Simple_Add_Mult:
   dependencies:
     - build-prereq 
   script:
+    - apt-get update && apt-get install -y bash  
+    - pip install pycfg
+    - pip install networkx matplotlib
     - chmod +x sample1.sh
     - ./sample1.sh  
 
