@@ -1,0 +1,84 @@
+stages:
+  - build
+  - deploy
+  
+
+build-prereq:
+  stage: build
+  image: python:3.11.6  
+  script:
+    - apt-get update && apt-get install -y bash  
+
+    
+
+Run_Sample_1_Simple_Add_Mult:
+  stage: deploy
+  image: python:3.11.6  
+  dependencies:
+    - build-prereq 
+  script:
+    - chmod +x sample1.sh
+    - ./sample1.sh  
+
+  only:
+    - main  
+
+
+
+Run_Sample_2_Paren_Add_Mult:
+  stage: deploy
+  image: python:3.11.6  
+  dependencies:
+    - build-prereq 
+  script:
+    - chmod +x sample2.sh
+    - ./sample2.sh  
+
+  only:
+    - main  
+ 
+
+
+Run_Sample_3_IfElse_Add_Mult:
+  stage: deploy
+  image: python:3.11.6  
+  dependencies:
+    - build-prereq 
+  script:
+    - chmod +x sample3.sh
+    - ./sample3.sh  
+
+  only:
+    - main  
+ 
+
+
+Run_Sample_4_WhileLoop_Add_Mult:
+  stage: deploy
+  image: python:3.11.6  
+  dependencies:
+    - build-prereq 
+  script:
+    - chmod +x sample4.sh
+    - ./sample4.sh  
+
+  only:
+    - main  
+ 
+
+
+
+Run_Sample_5_ForLoop_Add_Mult:
+  stage: deploy
+  image: python:3.11.6  
+  dependencies:
+    - build-prereq 
+  script:
+    - chmod +x sample5.sh
+    - ./sample5.sh  
+
+  only:
+    - main  
+
+
+    
