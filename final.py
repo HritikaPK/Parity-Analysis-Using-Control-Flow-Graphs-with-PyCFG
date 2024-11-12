@@ -1,4 +1,4 @@
-from pycfg.pycfg import PyCFG, CFGNode, slurp
+from pycfg import PyCFG, CFGNode, slurp
 import argparse
 import re
 # import ast
