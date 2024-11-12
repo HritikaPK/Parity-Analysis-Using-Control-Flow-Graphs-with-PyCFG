@@ -11,8 +11,8 @@ build-prereq:
   script:
     - apt-get update && apt-get install -y bash  
     - pip install pycfg
+    - pip install networkx matplotlib
 
-    
 
 Run_Sample_1_Simple_Add_Mult:
   stage: deploy
