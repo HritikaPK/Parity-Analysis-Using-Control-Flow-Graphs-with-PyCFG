@@ -8,6 +8,8 @@ build-prereq:
   image: python:3.11.6  
   script:
     - apt-get update && apt-get install -y bash  
+    - pip install pycfg
+
 
     
 
