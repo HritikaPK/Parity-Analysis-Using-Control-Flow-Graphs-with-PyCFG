@@ -10,10 +10,10 @@ build-prereq:
   image: python:3.11.6  
   script:
     - apt-get update && apt-get install -y bash  
-    - pip3 install pycfg
-    - pip3 install networkx matplotlib
-    - pip3 install astunparse
-    - pip install pygraphviz
+    - export CPLUS_INCLUDE_PATH=/usr/include/graphviz  # Set include path for headers
+    - export LIBRARY_PATH=/usr/lib/graphviz  # Set library path
+    - pip3 install pycfg networkx matplotlib astunparse
+    - pip3 install pygraphviz
 
     
 
@@ -23,13 +23,10 @@ Run_Sample_1_Simple_Add_Mult:
   dependencies:
     - build-prereq 
   script:
-    - apt-get update && apt-get install -y bash  
-    - pip3 install pycfg
-    - pip3 install networkx matplotlib
-    - pip3 install astunparse
-    - pip install pygraphviz
-
-    
+    - export CPLUS_INCLUDE_PATH=/usr/include/graphviz  # Set include path for headers
+    - export LIBRARY_PATH=/usr/lib/graphviz  # Set library path
+    - pip3 install pycfg networkx matplotlib astunparse
+    - pip3 install pygraphviz
     - chmod +x sample1.sh
     - ./sample1.sh  
 
