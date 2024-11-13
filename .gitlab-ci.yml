@@ -13,7 +13,7 @@ build-prereq:
     - pip3 install pycfg
     - pip3 install networkx matplotlib
     - pip3 install astunparse
-
+    - pip3 install pygraphviz
 
 Run_Sample_1_Simple_Add_Mult:
   stage: deploy
@@ -21,6 +21,11 @@ Run_Sample_1_Simple_Add_Mult:
   dependencies:
     - build-prereq 
   script:
+    - apt-get update && apt-get install -y bash  
+    - pip3 install pycfg
+    - pip3 install networkx matplotlib
+    - pip3 install astunparse
+    - pip3 install pygraphviz
     - chmod +x sample1.sh
     - ./sample1.sh  
 
