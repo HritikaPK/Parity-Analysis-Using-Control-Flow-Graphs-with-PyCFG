@@ -130,4 +130,22 @@ Run_Sample_5_ForLoop_Add_Mult:
     - main  
 
 
-    
+Run_Sample_False_Negative:
+  stage: deploy
+  image: python:3.11.6  
+  dependencies:
+    - build-prereq 
+  script:
+    - apt-get update && apt-get install -y wget bash graphviz
+    # Download Miniconda installer
+    - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+    - bash miniconda.sh -b -p $HOME/miniconda  # Install Miniconda
+    - export PATH="$HOME/miniconda/bin:$PATH"  # Add Conda to the path
+    - conda init  # Initialize Conda (optional)
+    - conda install -c conda-forge pygraphviz  # Install pygraphviz
+    - pip install pycfg networkx matplotlib astunparse
+    - chmod +x sample_false_negative.sh
+    - ./sample_false_negative.sh  
+
+  only:
+    - main  
