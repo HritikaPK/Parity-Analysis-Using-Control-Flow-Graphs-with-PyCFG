@@ -254,7 +254,7 @@ def analyze_parity(cfg):
                 for i in range(first_child,false_child):
                     process_assignment(CFGNode.cache[i], if_branch_env)
                     source = CFGNode.cache[i].source()
-                    print(f"loop run for {i}th node")
+                    # print(f"loop run for {i}th node")
                     print(f"Node {i}: {source}")
                     for var, parity in if_branch_env.items():
                         print(f"    {var}: {parity}")
