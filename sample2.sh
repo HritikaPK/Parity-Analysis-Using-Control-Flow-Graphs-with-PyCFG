@@ -10,4 +10,3 @@ echo "Finished parity analysis"
 echo "-------------------------"
 echo
 echo
-done
