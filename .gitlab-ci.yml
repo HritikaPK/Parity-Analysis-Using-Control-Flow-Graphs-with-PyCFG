@@ -10,9 +10,9 @@ build-prereq:
   image: python:3.11.6  
   script:
     - apt-get update && apt-get install -y bash  
-    - pip install pycfg
-    - pip install networkx matplotlib
-    - pip install astunparse
+    - pip3 install pycfg
+    - pip3 install networkx matplotlib
+    - pip3 install astunparse
 
 
 Run_Sample_1_Simple_Add_Mult:
