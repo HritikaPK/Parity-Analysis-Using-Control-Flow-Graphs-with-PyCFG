@@ -9,11 +9,9 @@ build-prereq:
   stage: build
   image: python:3.11.6  
   script:
-    - apt-get update && apt-get install -y bash  
-    - export CPLUS_INCLUDE_PATH=/usr/include/graphviz  # Set include path for headers
-    - export LIBRARY_PATH=/usr/lib/graphviz  # Set library path
-    - pip3 install pycfg networkx matplotlib astunparse
-    - pip3 install pygraphviz
+    - apt-get update && apt-get install -y graphviz
+    - conda install -c conda-forge pygraphviz
+    - pip install pycfg networkx matplotlib astunparse
 
     
 
@@ -23,10 +21,9 @@ Run_Sample_1_Simple_Add_Mult:
   dependencies:
     - build-prereq 
   script:
-    - export CPLUS_INCLUDE_PATH=/usr/include/graphviz  # Set include path for headers
-    - export LIBRARY_PATH=/usr/lib/graphviz  # Set library path
-    - pip3 install pycfg networkx matplotlib astunparse
-    - pip3 install pygraphviz
+    - apt-get update && apt-get install -y graphviz
+    - conda install -c conda-forge pygraphviz
+    - pip install pycfg networkx matplotlib astunparse
     - chmod +x sample1.sh
     - ./sample1.sh  
 
