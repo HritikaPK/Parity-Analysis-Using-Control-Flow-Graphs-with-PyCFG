@@ -41,15 +41,35 @@ This is also a May analysis: The analysis checks for possible states (even, odd,
 There are some instances of a Must analysis. For example, when a variable is assigned a literal, such as an integer (e.g., x = 2), the analysis concludes that x must be EVEN. This assignment effectively guarantees the parity in that specific context. This can be seen in all the sample python codes.
 
 ### DEFINITIONS FOR THE ABSTRACT OPERATIONS:
-meet(a, b): Used to merge two parities. If a and b are the same, it returns that value. If one is BOTTOM, it returns the other. Otherwise, it returns TOP. add_parity(a, b): Defined to handle addition parity based on operand parities:
-EVEN + EVEN = EVEN
-ODD + ODD = EVEN
-EVEN + ODD = ODD
-TOP propagates as TOP if either operand is TOP. 
-mul_parity(a, b): Handles parity for multiplication:
-  If either operand is EVEN, the result is EVEN.
-  ODD * ODD = ODD
-  
-Any operation involving TOP yields TOP. 
-def mult_parity_analysis(expr, parity_env, var): Function to perform parity analysis during multiplication def add_parity_analysis(expr, parity_env, var): Function to perform parity analysis during addition def parity_of_literal(value): Function to determine the parity of a literal integer def clean_variable_name(var_name): Function to clean variable names by removing special characters def process_assignment(node, parity_env): Performs functionalities of handling variable and expression parts in a source line of a node when needed in cases of the analyze_parity(). def evaluate_innermost_expr(expr, parity_env): Helps track the innermost parenthesis to perform addition or multiplication operation on and find their respective parity. 
-analyze_parity(cfg) : This is one of the most important functions which traverses CFG nodes and merges parity environments for branches (Assignment, Conditions, Control Statements) using meet(a,b).
+- **`meet(a, b)`**: Merges two parities.
+  - If `a` and `b` are the same, returns that value.
+  - If one is `BOTTOM`, returns the other.
+  - Otherwise, returns `TOP`.
+
+- **`add_parity(a, b)`**: Handles addition parity based on operand parities.
+  - `EVEN + EVEN = EVEN`
+  - `ODD + ODD = EVEN`
+  - `EVEN + ODD = ODD`
+  - If either operand is `TOP`, propagates as `TOP`.
+
+- **`mul_parity(a, b)`**: Handles multiplication parity.
+  - If either operand is `EVEN`, the result is `EVEN`.
+  - `ODD * ODD = ODD`
+  - Any operation involving `TOP` yields `TOP`.
+
+- **`mult_parity_analysis(expr, parity_env, var)`**: Performs parity analysis during multiplication.
+
+- **`add_parity_analysis(expr, parity_env, var)`**: Performs parity analysis during addition.
+
+- **`parity_of_literal(value)`**: Determines the parity of a literal integer.
+
+- **`clean_variable_name(var_name)`**: Cleans variable names by removing special characters.
+
+- **`process_assignment(node, parity_env)`**: Handles variable and expression parts in a source line of a node during parity analysis.
+
+- **`evaluate_innermost_expr(expr, parity_env)`**: Tracks the innermost parenthesis to perform addition or multiplication and find their respective parity.
+
+- **`analyze_parity(cfg)`**: 
+  - Traverses control flow graph (CFG) nodes.
+  - Merges parity environments for branches (assignments, conditions, control statements) using `meet(a, b)`.
+
